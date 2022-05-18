@@ -1,0 +1,10 @@
+C:\Users\GAMING\source\repos\BasicMaths\BasicMaths\bin\Debug\netcoreapp3.1\BasicMaths.deps.json
+C:\Users\GAMING\source\repos\BasicMaths\BasicMaths\bin\Debug\netcoreapp3.1\BasicMaths.dll
+C:\Users\GAMING\source\repos\BasicMaths\BasicMaths\bin\Debug\netcoreapp3.1\BasicMaths.pdb
+C:\Users\GAMING\source\repos\BasicMaths\BasicMaths\obj\Debug\netcoreapp3.1\BasicMaths.csproj.AssemblyReference.cache
+C:\Users\GAMING\source\repos\BasicMaths\BasicMaths\obj\Debug\netcoreapp3.1\BasicMaths.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\GAMING\source\repos\BasicMaths\BasicMaths\obj\Debug\netcoreapp3.1\BasicMaths.AssemblyInfoInputs.cache
+C:\Users\GAMING\source\repos\BasicMaths\BasicMaths\obj\Debug\netcoreapp3.1\BasicMaths.AssemblyInfo.cs
+C:\Users\GAMING\source\repos\BasicMaths\BasicMaths\obj\Debug\netcoreapp3.1\BasicMaths.csproj.CoreCompileInputs.cache
+C:\Users\GAMING\source\repos\BasicMaths\BasicMaths\obj\Debug\netcoreapp3.1\BasicMaths.dll
+C:\Users\GAMING\source\repos\BasicMaths\BasicMaths\obj\Debug\netcoreapp3.1\BasicMaths.pdb
