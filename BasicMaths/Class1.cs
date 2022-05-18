@@ -88,5 +88,36 @@ namespace BasicMaths
                 Console.WriteLine("");
             }
         }
+
+        public void Transpose()
+        {
+            Matrix temp = new Matrix(C, R);
+
+            for (int i=0;i<R;i++)
+            {
+                for (int j = 0; j<C;j++)
+                {
+                    temp.matrix[j][i] = this.matrix[i][j];
+                }
+
+            }
+
+            int swap = R;
+            R = C;
+            C = swap;
+            this.matrix = new float[R][];
+            for (int i = 0; i < R; i++)
+
+            {
+                matrix[i] = new float[C];
+                for (int j = 0; j < C; j++)
+                {
+                      this.matrix[i][j] = temp.matrix[i][j];
+                }
+
+            }
+
+
+        }
     }
 }
