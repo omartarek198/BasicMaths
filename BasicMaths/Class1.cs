@@ -45,10 +45,11 @@ namespace BasicMaths
             }
         }
 
-        public Matrix MultiplyBy( Matrix m)
+        public static Matrix MultiplyMatrices( Matrix m, Matrix m2)
         {
-            Matrix result = new Matrix(this.R, m.C);
-            if ( m.R != this.C)
+
+            Matrix result = new Matrix(m2.R, m.C);
+            if ( m.R != m2.C)
             {
                 // implement try catc later
                 Console.WriteLine("Error");
@@ -63,9 +64,9 @@ namespace BasicMaths
                     for (int j=0;j<result.C;j++)
                     {
 
-                        for (int k =0;k< this.C;k++  )
+                        for (int k =0;k< m2.C;k++  )
                         {
-                            sum += (this.matrix[i][k] * m.matrix[k][j]) ;
+                            sum += (m2.matrix[i][k] * m.matrix[k][j]) ;
                         }
                         result.matrix[i][j] = sum;
                         sum = 0;
@@ -119,5 +120,17 @@ namespace BasicMaths
 
 
         }
+
+        public static void map(Func<float, float> fn, Matrix m)
+            {
+                for (int i=0;i<m.R;i++)
+            {
+                for (int j=0;j<m.C;j++)
+                {
+                   m.matrix[i][j] = fn(m.matrix[i][j]);
+                }
+            }
+                        
+            }
     }
 }
