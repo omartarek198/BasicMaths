@@ -1,12 +1,21 @@
-﻿using System;
+﻿    using System;
 
 namespace BasicMaths
 {
+
+
+
+    public class constants
+    {
+
+       public const double E = 2.718281828459045;
+    }
     public class Matrix
     {
 
         float[][] matrix;
-        int R, C;
+        public int R, C;
+        Random rand = new Random();
         public Matrix( int r, int c)
         {
 
@@ -19,10 +28,20 @@ namespace BasicMaths
                 for (int j=0; j <c;j++)
                 {
                     matrix[i][j] = 0;
+                 
                 }
             }
         }
+        public static Matrix fromarray( float []arr)
+        {
+            Matrix result = new Matrix(arr.Length, 1);
+            for (int i=0;i<result.R;i++)
+            {
+                result.matrix[i][0] = arr[i];
+            }
 
+            return result;
+        }
         public void SetMatrix(float [][] arr)
         {
             for (int i=0;i<R;i++)
@@ -30,6 +49,27 @@ namespace BasicMaths
                 for (int j=0;j<C;j++ )
                 {
                     matrix[i][j] = arr[i][j];
+                }
+            }
+        }
+        public void SetMatrix(float n)
+        {
+            for (int i = 0; i < R; i++)
+            {
+                for (int j = 0; j < C; j++)
+                {
+                    matrix[i][j] = n;
+                }
+            }
+        }
+
+        public void add(int n)
+        {
+            for (int i = 0; i < R; i++)
+            {
+                for (int j = 0; j < C; j++)
+                {
+                    matrix[i][j] +=n;
                 }
             }
         }
@@ -45,7 +85,7 @@ namespace BasicMaths
             }
         }
 
-        public static Matrix MultiplyMatrices( Matrix m, Matrix m2)
+        public static Matrix MultiplyMatrices( Matrix m2, Matrix m)
         {
 
             Matrix result = new Matrix(m2.R, m.C);
@@ -78,6 +118,23 @@ namespace BasicMaths
             return result;
         }
 
+
+        public static Matrix AddMatricies( Matrix m, Matrix m2)
+        {
+
+            Matrix result = new Matrix(m.R, m.C);
+
+            for (int i=0;i<m.R;i++)
+            {
+                for (int j=0;j<m.C;j++)
+                {
+                    result.matrix[i][j] = m.matrix[i][j] + m2.matrix[i][j];
+                }
+            }
+
+            return result;
+        }
+
         public void PrintMatrix()
         {
             for (int i=0;i<R;i++)
@@ -88,6 +145,25 @@ namespace BasicMaths
                 }
                 Console.WriteLine("");
             }
+        }
+
+        public float[] Toarray(Matrix m)
+        {
+            float []arr = new float[ m.R * m.C];
+
+            int k = 0;
+            for (int i = 0; i < R; i++)
+            {
+                for (int j = 0; j < C; j++)
+                {
+                   arr[k]=  this.matrix[i][j];
+                    k++;
+                }
+
+            }
+
+
+            return arr;
         }
 
         public void Transpose()
@@ -120,14 +196,47 @@ namespace BasicMaths
 
 
         }
+        public void Randomize()
+        {
+            for (int i=0;i<R;i++)
+            {
+                for (int j =0; j<C;j++)
+                {
+                    this.matrix[i][j] = rand.Next();
+                }
+            }
+        }
 
-        public static void map(Func<float, float> fn, Matrix m)
+        public void Randomize( int min, int max)
+        {
+            for (int i = 0; i < R; i++)
+            {
+                for (int j = 0; j < C; j++)
+                {
+                    this.matrix[i][j] = rand.Next(min,max);
+                }
+            }
+        } public void RandomizeF( int min, int max)
+        {
+            for (int i = 0; i < R; i++)
+            {
+                for (int j = 0; j < C; j++)
+                {
+                    this.matrix[i][j] = rand.Next(min,max)  *(float)rand.NextDouble();  
+                }
+            }
+        }
+
+
+
+
+        public static void map(Func<double, double> fn, Matrix m)
             {
                 for (int i=0;i<m.R;i++)
             {
                 for (int j=0;j<m.C;j++)
                 {
-                   m.matrix[i][j] = fn(m.matrix[i][j]);
+                   m.matrix[i][j] =  (float) fn(m.matrix[i][j]);
                 }
             }
                         
